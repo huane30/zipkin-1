@@ -13,7 +13,7 @@ const entityMap = {
   '=': '&#x3D;'
 };
 
-function escapeHtml (string) {
+function escapeHtml(string) {
   return String(string).replace(/[&<>"'`=\/]/g, s => entityMap[s]);
 }
 
@@ -51,7 +51,8 @@ export function formatBinaryAnnotationValue(value) {
   }
   const result = value.toString();
   // Preformat if the text includes newlines
-  return result.indexOf('\n') === -1 ? escapeHtml(result) : `<pre><code>${escapeHtml(result)}</code></pre>`;
+  return result.indexOf('\n') === -1 ? escapeHtml(result)
+    : `<pre><code>${escapeHtml(result)}</code></pre>`;
 }
 
 export default component(function spanPanel() {
